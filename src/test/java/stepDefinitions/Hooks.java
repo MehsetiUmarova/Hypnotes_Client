@@ -3,6 +3,7 @@ package stepDefinitions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.restassured.response.Response;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,9 @@ public class Hooks {
     public static WebDriver driver;
     public static CommonPage commonPage;
     public static Actions actions;
+    public static Response response;
+    public static String csrfToken;
+    public static String PHPSESSID;
 
     public static boolean isHeadless = false;
     public static String browserType = "chrome";
