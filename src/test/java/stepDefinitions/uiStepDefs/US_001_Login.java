@@ -26,15 +26,16 @@ public class US_001_Login extends CommonPage {
         getClientPage().email.sendKeys(USER_INFO.THERAPIST.getEmail());
         getClientPage().password.sendKeys(USER_INFO.THERAPIST.getPassword());
         JS_utilities.clickElementByJS(getClientPage().loginButton);
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(3);
     }
     @And("Login successfully message should be visible")
     public void loginSuccessfullyMessageShouldBeVisible() {
         ReusableMethods.verifyElementDisplayed(getClientPage().loginSuccessfullyMessage);
+        ReusableMethods.waitFor(3);
     }
     @Then("the user should be logged in successfully")
     public void theUserShouldBeLoggedInSuccessfully() {
-        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("login"));
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("dashboard"));
     }
 
 
