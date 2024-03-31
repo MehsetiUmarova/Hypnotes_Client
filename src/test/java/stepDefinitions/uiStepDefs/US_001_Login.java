@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.CommonPage;
+import stepDefinitions.apiStepDef.ApiMethods;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.JS_utilities;
@@ -27,11 +28,13 @@ public class US_001_Login extends CommonPage {
         getClientPage().password.sendKeys(USER_INFO.THERAPIST.getPassword());
         JS_utilities.clickElementByJS(getClientPage().loginButton);
         ReusableMethods.waitFor(3);
+
     }
     @And("Login successfully message should be visible")
     public void loginSuccessfullyMessageShouldBeVisible() {
         ReusableMethods.verifyElementDisplayed(getClientPage().loginSuccessfullyMessage);
         ReusableMethods.waitFor(3);
+        ApiMethods.locationChange();
     }
     @Then("the user should be logged in successfully")
     public void theUserShouldBeLoggedInSuccessfully() {
