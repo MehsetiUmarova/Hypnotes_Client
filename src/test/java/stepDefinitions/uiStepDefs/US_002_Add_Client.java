@@ -42,16 +42,12 @@ public class US_002_Add_Client extends CommonPage {
         getClientPage().emailbox.sendKeys(email);
         ReusableMethods.waitFor(2);
     }
-//    @And("the user enters invalid email")
-//    public void theUserEntersInvalidEmail() {
-//        getClientPage().emailbox.sendKeys("Mehseti");
-//        ReusableMethods.waitFor(3);
-//    }
+
     @Then("the user verifies that email alert is visible")
     public void theUserVerifiesThatEmailAlertIsVisible() {
         ReusableMethods.verifyElementDisplayed(getClientPage().alertEmail);
         ReusableMethods.waitFor(3);
-        //Assert.assertTrue(getClientPage().alertEmail.getText().contains("Invalid input detected, please review and correct."));
+
     }
     @And("the user enters valid firstname")
     public void theUserEntersValidFirstname() {
