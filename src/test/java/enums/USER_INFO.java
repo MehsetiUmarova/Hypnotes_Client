@@ -1,7 +1,6 @@
 package enums;
 
 public enum USER_INFO {
-   CLIENT("hypnotes2022cl2@gmail.com","Aydinlik123/"),
     THERAPIST("hypnotes2022tr1@gmail.com","Aydinlik123/");
 
     private final String email;
