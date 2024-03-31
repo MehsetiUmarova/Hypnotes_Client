@@ -3,7 +3,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 import static org.junit.Assert.assertEquals;
-import static utilities.Api_utilities.response;
+import static stepDefinitions.apiStepDef.ApiMethods.response;
+
 public class ApiStepdef {
 
     @Given("the user logs in with Therapist credentials")
