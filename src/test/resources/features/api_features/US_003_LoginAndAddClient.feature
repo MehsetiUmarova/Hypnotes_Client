@@ -1,4 +1,4 @@
-Feature: As a user I should be login as Therapist
+Feature: As a user I should be login and Add new Client as Therapist
   @API
   Scenario: User logs in as Therapist
 
