@@ -7,11 +7,13 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import utilities.Api;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.requestSpecification;
 import static stepDefinitions.Hooks.PHPSESSID;
 
 public class ApiMethods {
@@ -69,8 +71,32 @@ public class ApiMethods {
 
         response = given()
                 .spec(requestSpecification)
-                .body("timezone: Asia/Baku")
+                .body("timezone: Asia/Baku")//her kes Kendi location-nu eklemeli
                 .post("/dashboard/getUser");
+        response.prettyPrint();
+
+    }
+
+    public static void locationChangeDeneme2() {
+        RequestSpecification requestSpecification = RestAssured.given();
+        ResponseSpecification responseSpecification= RestAssured.expect();
+
+        Response response;
+        Map<String, String> mapBody = new HashMap<>();
+        mapBody.put("username", USER_INFO.THERAPIST.getEmail());
+        mapBody.put("password", USER_INFO.THERAPIST.getPassword());
+
+        response = given()
+                .contentType(ContentType.JSON)
+                .body(mapBody)
+                .post("https://test.hypnotes.net/api/login");
+        PHPSESSID = response.cookies().get("PHPSESSID");
+
+        response = given()
+                .header("content-type", "application/x-www-form-urlencoded")
+                .header("cookie", "cookie", "PHPSESSID=" + PHPSESSID)
+                .body("timezone: Asia/Baku") //her kes Kendi location-nu eklemeli
+                .post("https://test.hypnotes.net/api/dashboard/getUser");
         response.prettyPrint();
 
     }

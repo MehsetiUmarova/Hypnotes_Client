@@ -18,6 +18,7 @@ public class US_001_Login extends CommonPage {
     public void theUserIsOnTheHomePage() {
 
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        ApiMethods.locationChangeDeneme2();
     }
 
     @When("the user logs in with client credentials")
@@ -34,7 +35,7 @@ public class US_001_Login extends CommonPage {
     public void loginSuccessfullyMessageShouldBeVisible() {
         ReusableMethods.verifyElementDisplayed(getClientPage().loginSuccessfullyMessage);
         ReusableMethods.waitFor(3);
-        ApiMethods.locationChange();
+
     }
     @Then("the user should be logged in successfully")
     public void theUserShouldBeLoggedInSuccessfully() {
