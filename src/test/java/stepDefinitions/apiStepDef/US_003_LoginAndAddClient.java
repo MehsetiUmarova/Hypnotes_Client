@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import static org.junit.Assert.assertEquals;
 import static stepDefinitions.apiStepDef.ApiMethods.response;
 
-public class ApiStepdef {
+public class US_003_LoginAndAddClient {
 
     @Given("the user logs in with Therapist credentials")
     public void theUserLogsInWithTherapistCredentials() {
